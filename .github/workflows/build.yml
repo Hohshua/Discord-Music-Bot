@@ -13,3 +13,6 @@ jobs:
           CI: true
           TOKEN: ${{ secrets.TOKEN }}
       - run: node index.js
+        env:
+          CI: true
+          TOKEN: ${{ secrets.TOKEN }}
