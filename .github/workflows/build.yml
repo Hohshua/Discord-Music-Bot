@@ -1,0 +1,15 @@
+on: push
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    container: node:16
+    steps:
+      - run: node --version
+      - run: npm --version
+      - uses: actions/checkout@v3
+      - run: npm i dotenv discord.js discord-player @discordjs/voice @discordjs/rest @discordjs/opus @discordjs/builders
+      - run: node index.js load
+      - run: node index.js
+        env:
+          CI: true
+          TOKEN: ${{ secrets.TOKEN }}
