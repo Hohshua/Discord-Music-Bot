@@ -6,7 +6,9 @@ jobs:
     steps:
       - run: node --version
       - run: npm --version
-      - run: ffmpeg --version
+      - run: sudo apt update
+      - run: sudo apt install ffmpeg
+      - run: ffmpeg -version
       - uses: actions/checkout@v3
       - run: npm i dotenv discord.js discord-player @discordjs/voice @discordjs/rest @discordjs/opus @discordjs/builders
       - run: node index.js load
